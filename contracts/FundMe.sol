@@ -86,3 +86,7 @@ contract FundMe {
 
 // yarn add -D hardhat-deploy     yarn add hardhat-deploy --dev
 // yarn add --dev hardhat-deploy-ethers     npm install --save-dev @nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers ethers
+
+// yarn solhint contracts/*.sol
+// eslint - way to lint js files
+// sollint - way to lint solidity files

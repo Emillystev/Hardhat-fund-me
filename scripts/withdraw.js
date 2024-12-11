@@ -13,5 +13,7 @@ main()
   .then(() => process.exit(0))
   .catch((error) => {
     console.error(error);
-    oricess.exit(1);
+    process.exit(1);
   });
+
+// yarn hardhat run scripts/withdraw.js --network localhost 

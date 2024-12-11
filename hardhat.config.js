@@ -24,7 +24,7 @@ module.exports = {
       url: RPC_URL_SEPOLIA,
       accounts: [PRIVATE_KEY_MINE],
       chainId: 11155111,
-      blockConfirmations: 6,
+      blockConfirmations: 6, // how many blocks we wanna wait 
     },
     localhost: {
       url: "http://127.0.0.1:8545",

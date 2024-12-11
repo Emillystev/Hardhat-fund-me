@@ -10,13 +10,16 @@ const {
 
 const { verify } = require("../utils/verify");
 
-module.exports = async ({ getNamedAccounts, deployments }) => {
+module.exports = async ({ getNamedAccounts, deployments }) => { // async(hre)
+  // const { getNamedAccounts, deployments } = hre // module.exports = async(hre)
+  // hre.getNamedAccounts()
+  // hre.deployments
   const { deploy, log } = deployments;
   const { deployer } = await getNamedAccounts(); // mostRecentDeployer
   const chainId = network.config.chainId;
 
   let ethUsdPriceFeedAddress;
-  if (developmentChains.includes(network.name)) {
+  if (developmentChains.includes(network.name)) { 
     const ethUsdAggregator = await deployments.get("MockV3Aggregator"); // await get("MockV3Aggregator");   const {deploy, log, get} = deployments;
     ethUsdPriceFeedAddress = ethUsdAggregator.address;
   } else {
@@ -28,7 +31,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     from: deployer,
     args: args,
     log: true,
-    waitConfirmations: network.config.blockConfirmations || 1,
+    waitConfirmations: network.config.blockConfirmations || 1, // network.config. means taking something
   });
   log("---------------------------------------");
 
@@ -39,11 +42,15 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   // const mock = await deployments.get("MockV3Aggregator");
   // log(mock);
 
-  if (!developmentChains.includes(network.name)) {
-    await verify(fundMe.target, args);
-  }
+  // verify on testnet
+  // if (!developmentChains.includes(network.name)) {
+  //   await verify(fundMe.target, args);
+  // }
 };
 
-module.exports.tags = ["all", "fundme"];
+module.exports.tags = ["all", "fundme"]; // // yarn hardhat deploy --tags fundme --network sepolia
 
 // yarn hardhat deploy
+
+// control + f (searching for something)
+
